@@ -22,7 +22,7 @@ pod 'SlidePlate'
 
 ## Author
 
-Konstantin Bondar, konstantin.bondar@postindustria.com
+Konstantin Bondar, bondar.k.dev@gmail.com
 
 ## License
 
