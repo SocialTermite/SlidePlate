@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
     }
 
-    var plate: SlidePlate!
+    var plate: SPController!
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -31,17 +31,18 @@ class ViewController: UIViewController {
             maker.edges.equalToSuperview()
         }
         contView.snp.makeConstraints { (maker) in
-            maker.height.equalTo(50)
+            maker.width.equalTo(50)
         }
         
-        plate = SlidePlate.install(contView, into: view, at: SPPosition(horizontal: .left, vertical: .y(150)))
-    }
-    @IBAction func some(_ sender: Any) {
-        if plate.state == .default {
-            plate.show()
-        } else {
-            plate.hide()
+        let fakeView = UIView()
+        fakeView.layer.borderColor = UIColor.blue.cgColor
+        fakeView.layer.borderWidth = 1
+        view.addSubview(fakeView) { (maker) in
+            maker.top.equalTo(250)
+            maker.left.equalTo(100)
+            maker.size.equalTo(200)
         }
+        plate = SPController.install(containerView: contView, into: view, at:  SPPosition(horizontal: .left, vertical: .y(150)), animationConfig: SPAnimator.Config())
     }
 }
 

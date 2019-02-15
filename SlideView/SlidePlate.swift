@@ -11,56 +11,39 @@ import SnapKit
 
 class SlidePlate: UIView {
     private var containerView: UIView
-    fileprivate var constraintController: SPConstraintController?
-    fileprivate var stateController: SPStateController?
+    fileprivate var tapButton = UIButton(type: .custom)
     
-    var color: UIColor = .red
-    var cornerRadius: CGFloat = 5
+    var userTapped: (() -> ())?
     
-    static func install(_ view: UIView, into superview: UIView, at position: SPPosition) -> SlidePlate {
-        let plate = SlidePlate(containerView: view)
+    private func setupView(config: SPController.AppearanceConfig) {
         
-        plate.constraintController = SPConstraintController(with: plate, in: position)
-        plate.constraintController?.install(into: superview)
-        
-        plate.stateController = SPStateController()
-        plate.stateController?.actionDelegate = plate.constraintController
-        
-        return plate
-    }
-    
-    func show() {
-        stateController?.state = .showed
-    }
-    
-    func hide() {
-        stateController?.state = .default
-    }
-    
-    private(set) var state: SPStateController.State? {
-        get {
-            return stateController?.state
-        }
-        set {
-            stateController?.state = newValue ?? .default
-        }
-    }
-    
-    private func setupView() {
-        backgroundColor = color
-        layer.cornerRadius = cornerRadius
+        backgroundColor = config.backgroundColor
+        layer.borderColor = config.borderColor
+        layer.borderWidth = config.borderWidth
+        layer.cornerRadius = config.cornerRadius
         
         addSubview(containerView) { (maker) in
-            maker.left.top.equalTo(5)
-            maker.bottom.right.equalTo(-5)
+            maker.left.top.equalTo(config.containerMargins)
+            maker.bottom.right.equalTo(-config.containerMargins)
         }
+        
+        
+        tapButton.setTitle("", for: .normal)
+        addSubview(tapButton) { (maker) in
+            maker.edges.equalToSuperview()
+        }
+        tapButton.addTarget(self, action: #selector(tapped), for: .touchUpInside)
+    }
+    
+    @objc private func tapped() {
+        userTapped?()
     }
     
     // MARK: - init
-    private init(containerView: UIView) {
+    init(containerView: UIView, config: SPController.AppearanceConfig) {
         self.containerView = containerView
         super.init(frame: .zero)
-        setupView()
+        setupView(config: config)
     }
     
     required init?(coder aDecoder: NSCoder) {

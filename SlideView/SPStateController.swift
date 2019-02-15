@@ -25,16 +25,24 @@ protocol SPActionDelegate: class {
 }
 
 class SPStateController {
-    enum State: Int {
+    enum State: Int, Comparable {
+        static func < (lhs: SPStateController.State, rhs: SPStateController.State) -> Bool {
+            return lhs.rawValue < rhs.rawValue
+        }
+        
         case outOfScreen
-        case `default`
+        case peak
         case showed
         case editing
     }
     
-    weak var actionDelegate: SPActionDelegate? = nil
+    private weak var actionDelegate: SPActionDelegate?
     
-    var state: State = .default {
+    init(actionDelegate: SPActionDelegate?) {
+        self.actionDelegate = actionDelegate
+    }
+    
+    private(set) var state: State = .peak {
         didSet {
             guard state != oldValue else {
                 return
@@ -46,11 +54,27 @@ class SPStateController {
     }
     
     private lazy var forwardRoute: [State: Action?] = [.outOfScreen: nil,
-                                                      .default: self.actionDelegate?.appear,
+                                                      .peak: self.actionDelegate?.appear,
                                                       .showed: self.actionDelegate?.show,
                                                       .editing: self.actionDelegate?.startEdit]
     private lazy var backwardRoute: [State: Action?] = [.outOfScreen: self.actionDelegate?.dissapear,
-                                                        .default: self.actionDelegate?.hide,
+                                                        .peak: self.actionDelegate?.hide,
                                                         .showed: self.actionDelegate?.stopEdit,
                                                         .editing: nil]
+    
+    func nextState() {
+        state = State(rawValue: state.rawValue + 1) ?? state
+    }
+    
+    func prevState() {
+        state = State(rawValue: state.rawValue - 1) ?? state
+    }
+    
+    func userTapped() {
+        if state > .peak {
+            prevState()
+        } else {
+            nextState()
+        }
+    }
 }

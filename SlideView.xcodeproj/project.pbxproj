@@ -14,6 +14,8 @@
 		E8D3B5EA21C5227500959AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8D3B5E921C5227500959AD5 /* Assets.xcassets */; };
 		E8D3B5ED21C5227500959AD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D3B5EB21C5227500959AD5 /* LaunchScreen.storyboard */; };
 		E8D3B5F521C527E500959AD5 /* SlidePlate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3B5F421C527E500959AD5 /* SlidePlate.swift */; };
+		E8D78B6322173B540084BB9C /* SPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D78B6222173B540084BB9C /* SPController.swift */; };
+		E8D78B6522173DD70084BB9C /* SPAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D78B6422173DD70084BB9C /* SPAnimator.swift */; };
 		E8F9C78D21D7CDDD005ABB79 /* SlidePlateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9C78C21D7CDDD005ABB79 /* SlidePlateManager.swift */; };
 		E8F9C78F21D7D0D5005ABB79 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9C78E21D7D0D5005ABB79 /* UIView+Additions.swift */; };
 		E8F9C79321D7E5A6005ABB79 /* SPConstraintController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9C79221D7E5A6005ABB79 /* SPConstraintController.swift */; };
@@ -33,6 +35,8 @@
 		E8D3B5EC21C5227500959AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8D3B5EE21C5227500959AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8D3B5F421C527E500959AD5 /* SlidePlate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidePlate.swift; sourceTree = "<group>"; };
+		E8D78B6222173B540084BB9C /* SPController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPController.swift; sourceTree = "<group>"; };
+		E8D78B6422173DD70084BB9C /* SPAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPAnimator.swift; sourceTree = "<group>"; };
 		E8F9C78C21D7CDDD005ABB79 /* SlidePlateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlidePlateManager.swift; sourceTree = "<group>"; };
 		E8F9C78E21D7D0D5005ABB79 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		E8F9C79221D7E5A6005ABB79 /* SPConstraintController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPConstraintController.swift; sourceTree = "<group>"; };
@@ -90,18 +94,20 @@
 		E8D3B5E121C5227300959AD5 /* SlideView */ = {
 			isa = PBXGroup;
 			children = (
+				E8F9C78C21D7CDDD005ABB79 /* SlidePlateManager.swift */,
+				E8F9C78E21D7D0D5005ABB79 /* UIView+Additions.swift */,
+				E8F9C79421D7EE77005ABB79 /* SPPosition.swift */,
 				E8D3B5E221C5227300959AD5 /* AppDelegate.swift */,
 				E8D3B5E421C5227300959AD5 /* ViewController.swift */,
 				E8D3B5E621C5227300959AD5 /* Main.storyboard */,
 				E8D3B5E921C5227500959AD5 /* Assets.xcassets */,
 				E8D3B5EB21C5227500959AD5 /* LaunchScreen.storyboard */,
 				E8D3B5EE21C5227500959AD5 /* Info.plist */,
+				E8D78B6222173B540084BB9C /* SPController.swift */,
 				E8D3B5F421C527E500959AD5 /* SlidePlate.swift */,
-				E8F9C78C21D7CDDD005ABB79 /* SlidePlateManager.swift */,
-				E8F9C78E21D7D0D5005ABB79 /* UIView+Additions.swift */,
-				E8F9C79221D7E5A6005ABB79 /* SPConstraintController.swift */,
-				E8F9C79421D7EE77005ABB79 /* SPPosition.swift */,
 				E8F9C79821D7F774005ABB79 /* SPStateController.swift */,
+				E8F9C79221D7E5A6005ABB79 /* SPConstraintController.swift */,
+				E8D78B6422173DD70084BB9C /* SPAnimator.swift */,
 			);
 			path = SlideView;
 			sourceTree = "<group>";
@@ -204,9 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8F9C78F21D7D0D5005ABB79 /* UIView+Additions.swift in Sources */,
+				E8D78B6322173B540084BB9C /* SPController.swift in Sources */,
 				E8F9C78D21D7CDDD005ABB79 /* SlidePlateManager.swift in Sources */,
 				E8F9C79921D7F774005ABB79 /* SPStateController.swift in Sources */,
 				E8D3B5E521C5227300959AD5 /* ViewController.swift in Sources */,
+				E8D78B6522173DD70084BB9C /* SPAnimator.swift in Sources */,
 				E8F9C79521D7EE77005ABB79 /* SPPosition.swift in Sources */,
 				E8F9C79321D7E5A6005ABB79 /* SPConstraintController.swift in Sources */,
 				E8D3B5F521C527E500959AD5 /* SlidePlate.swift in Sources */,
