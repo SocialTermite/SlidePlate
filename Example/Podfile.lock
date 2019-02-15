@@ -1,0 +1,23 @@
+PODS:
+  - SlidePlate (0.1.0):
+    - SnapKit
+  - SnapKit (4.2.0)
+
+DEPENDENCIES:
+  - SlidePlate (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  SlidePlate:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SlidePlate: 127bd29e8153ff5ed98fb91d33d3391f3f64dee9
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+
+PODFILE CHECKSUM: 2bbfcc11e8fcdaff8f0c79929d1470f835826e8c
+
+COCOAPODS: 1.5.3

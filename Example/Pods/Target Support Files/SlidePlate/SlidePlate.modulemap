@@ -1,0 +1,6 @@
+framework module SlidePlate {
+  umbrella header "SlidePlate-umbrella.h"
+
+  export *
+  module * { export * }
+}
